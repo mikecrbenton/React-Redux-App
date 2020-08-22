@@ -1,6 +1,6 @@
 const initialState = {
    loading: false,
-   dog: "https://dog.ceo/api/breeds/image/random"
+   dog: "https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_478.jpg"
  };
  
  export const dogReducer = (state = initialState, action) => {

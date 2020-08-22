@@ -35,6 +35,8 @@ export default connect( mapStateToProps, { getDog } )(DogPicture);
 const MainContainer = styled.div`
    border: 10px solid tan;
    box-shadow: 0 0 5px black;
+   border-radius: 10px;
+   background-color: ;
    width: 50%;
    margin: 2em auto;
    padding: 2em;
@@ -48,6 +50,7 @@ const MainContainer = styled.div`
          max-width: 300px;
          max-height: 400px;
          border: 10px solid tan;
+         border-radius: 5px;
          box-shadow: 0 0 5px black;
       }
 
