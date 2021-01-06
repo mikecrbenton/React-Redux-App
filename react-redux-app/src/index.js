@@ -4,13 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { dogReducer } from './reducers/dogReducer';
+// COMBINE REDUCERS EXAMPLE--------------
+import { rootReducer } from './reducers'
+// SINGLE REDUCER
+//import { dogReducer } from './reducers/dogReducer';
 
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
+import logger from 'redux-logger'
 
-let store = createStore( dogReducer, applyMiddleware(thunk));
+// **LOGGER HAS TO BE LAST** - ALWAYS
+let store = createStore( rootReducer, applyMiddleware(thunk,logger) );
 
 ReactDOM.render(
   <Provider store={store}>

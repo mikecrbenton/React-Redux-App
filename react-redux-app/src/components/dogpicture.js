@@ -1,21 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { connect } from "react-redux";
 import { getDog } from "../actions";
 import styled from 'styled-components';
 
 
-function DogPicture(props) {
+function DogPicture( props ) {
+
+  useEffect( () => {
+     props.getDog();
+  },[getDog]) 
+
   return (
     <MainContainer>
       <div className="dog-container">
-         {props.loading ? (
+         {props.loading ? ( // <-- implicit return
          <h1>Loading</h1>
-         ) : (
+         ) : (    // <-- implicit return
          <img src={props.dog} />
          )}
       </div>
 
-      <button onClick={() => {props.getDog();}}>
+      <button onClick={() => {props.getDog()}}>
         Get Dog Picture
       </button>
 
@@ -23,12 +28,21 @@ function DogPicture(props) {
   );
 }
 
+// ***KEY CONCEPT***  
+// WHEN USING MULTIPLE REDUCERS - YOU NEED TO 
+// DECONSTRUCT DOWN A LEVEL TO THE REDUCER NAME
+// ( THE NAME YOU DEFINED IN reducers/index.js)
  const mapStateToProps = (state) => {
    return{
-    loading: state.loading,
-    dog: state.dog
+    loading: state.dogReducer.loading,
+    dog: state.dogReducer.dog
    }
  }
+
+ // COULD ALSO CREATE mapDispatchToProps = {
+ //                      someName: getDog
+ //                      anotherFunc : doSomething
+ //                   }
 
 export default connect( mapStateToProps, { getDog } )(DogPicture);
 
@@ -67,3 +81,19 @@ const MainContainer = styled.div`
    }
 
 `;
+
+
+{/* <MainContainer>
+<div className="dog-container">
+   {props.loading ? (  //
+   <h1>Loading</h1>
+   ) : (
+   <img src={props.dog} />
+   )}
+</div>
+
+<button onClick={() => {props.getDog()}}>
+  Get Dog Picture
+</button>
+
+</MainContainer> */}
