@@ -33,13 +33,13 @@ function DogPicture(props) {
 export default connect( mapStateToProps, { getDog } )(DogPicture);
 
 const MainContainer = styled.div`
-   border: 10px solid tan;
-   box-shadow: 0 0 5px black;
+   box-shadow: 0 0 7px black;
    border-radius: 10px;
-   background-color: ;
-   width: 50%;
+   background-color: #e1d89f ;
+   max-width: 500px;
+   min-width: 500px;
    margin: 2em auto;
-   padding: 2em;
+   text-align: center;
 
    .dog-container{
       height: 400px;
@@ -48,21 +48,22 @@ const MainContainer = styled.div`
       img{
          object-fit: cover;
          max-width: 300px;
-         max-height: 400px;
-         border: 10px solid tan;
+         max-height: 350px;
          border-radius: 5px;
          box-shadow: 0 0 5px black;
+         margin: 2em;
       }
 
    }
    button{
-      border: 3px solid tan;
-      box-shadow: 0 0 2px black;
+      border: 2px solid #2c061f;
+      box-shadow: 0 0 3px black;
+      border-radius: 5px;
       padding: .5em 1em;
       background-color: #FFF;
-      color: tan;
+      color: #2c061f;
       font-weight: 900;
-      margin-top: 1em;
+      margin: 1em;
    }
 
 `;

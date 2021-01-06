@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const getDog = () => {
+
   return dispatch => {
 
     dispatch({ type: "LOADING" });
@@ -12,4 +13,5 @@ export const getDog = () => {
       })
       .catch(err => console.log("ERROR:", err));
   };
+  
 };
